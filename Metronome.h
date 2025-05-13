@@ -3,7 +3,7 @@
 //    FILE: Metronome.h
 //  AUTHOR: Rob Tillaart
 // VERSION: 0.1.0
-// PURPOSE: Arduino Library for a metronome
+// PURPOSE: Arduino library for creating a Metronome.
 //    DATE: 2013-09-16  (initial sketch)
 //     URL: https://github.com/RobTillaart/Metronome
 
@@ -20,7 +20,7 @@ class Metronome
   Metronome(uint8_t tickPin, uint8_t tockPin = 255)
   {
     _tickpin = tickPin;
-    if (tockPin == 255) _tockpin = _tickPin;
+    if (tockPin == 255) _tockpin = _tickpin;
     _tockpin = tockPin;
     _bpm = 100;
     _measure = 4;
