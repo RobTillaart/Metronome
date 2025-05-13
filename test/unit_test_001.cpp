@@ -46,7 +46,8 @@ unittest(test_constants)
 
 unittest(test_constructor)
 {
-  Metronome obj;
+  Metronome M1(13);
+  Metronome M2(10, 11);
 }
 
 
