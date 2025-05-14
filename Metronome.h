@@ -19,22 +19,24 @@ class Metronome
   public:
   Metronome(uint8_t tickPin, uint8_t tockPin = 255)
   {
-    _tickpin = tickPin;
-    _tockpin = tockPin;
-    if (_tockPin == 255) _tockpin = _tickpin;
+    _tickPin = tickPin;
+    _tockPin = tockPin;
+    if (_tockPin == 255) _tockPin = _tickPin;
+    //  defaults
     _bpm = 100;
     _measure = 4;
     _run = false;
     _tick = LOW;
+    _count = 0;
   };
 
   void begin()
   {
-    pinMode(_tickpin, OUTPUT);
-    pinMode(_tockpin, OUTPUT);
+    pinMode(_tickPin, OUTPUT);
+    pinMode(_tockPin, OUTPUT);
     _tick = LOW;
-    digitalWrite(_tickpin, _tick);
-    digitalWrite(_tockpin, _tick);
+    digitalWrite(_tickPin, _tick);
+    digitalWrite(_tockPin, _tick);
   };
 
   //  bpm >= 30 ?
@@ -69,6 +71,7 @@ class Metronome
   void stop()
   {
     _run = false;
+    _tick = LOW;
     _count = 0;
   };
 
@@ -85,11 +88,11 @@ class Metronome
          _tick = (_tick == LOW) ? HIGH : LOW;
          if (_count < (2 * _measure - 1))
          {
-           digitalWrite(_tickpin, _tick);
+           digitalWrite(_tickPin, _tick);
          }
          else
          {
-           digitalWrite(_tockpin, _tick);
+           digitalWrite(_tockPin, _tick);
          }
          if (_count == (2 * _measure))
          {
@@ -100,15 +103,15 @@ class Metronome
     else
     {
       _tick = LOW;
-      digitalWrite(_tickpin, _tick);
-      digitalWrite(_tockpin, _tick);
+      digitalWrite(_tickPin, _tick);
+      digitalWrite(_tockPin, _tick);
     }
   };
 
 
 private:
-  uint8_t  _tickpin;
-  uint8_t  _tockpin;
+  uint8_t  _tickPin;
+  uint8_t  _tockPin;
   float    _bpm;
   uint8_t  _measure;
   uint8_t  _count;  //  for measure
