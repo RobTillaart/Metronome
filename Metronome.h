@@ -2,7 +2,7 @@
 //
 //    FILE: Metronome.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
+// VERSION: 0.1.1
 // PURPOSE: Arduino library for creating a Metronome.
 //    DATE: 2013-09-16  (initial sketch)
 //     URL: https://github.com/RobTillaart/Metronome
@@ -20,8 +20,8 @@ class Metronome
   Metronome(uint8_t tickPin, uint8_t tockPin = 255)
   {
     _tickpin = tickPin;
-    if (tockPin == 255) _tockpin = _tickpin;
     _tockpin = tockPin;
+    if (_tockPin == 255) _tockpin = _tickpin;
     _bpm = 100;
     _measure = 4;
     _run = false;
@@ -31,6 +31,7 @@ class Metronome
   void begin()
   {
     pinMode(_tickpin, OUTPUT);
+    pinMode(_tockpin, OUTPUT);
     _tick = LOW;
     digitalWrite(_tickpin, _tick);
     digitalWrite(_tockpin, _tick);
@@ -43,7 +44,10 @@ class Metronome
     _interval = round(30000000 / _bpm);
   };
 
-  float getBeatsPerMinute() { return _bpm; };
+  float getBeatsPerMinute()
+  {
+    return _bpm;
+  };
 
   //  e.g. 3 = Waltz  3/8 or 3/4
   void setMeasure(uint8_t m)
@@ -65,6 +69,7 @@ class Metronome
   void stop()
   {
     _run = false;
+    _count = 0;
   };
 
   //  check must be called every millisecond for timing.
