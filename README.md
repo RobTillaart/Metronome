@@ -121,7 +121,7 @@ Default the Metronome is idle and needs an explicit **start()**.
 #### Could
 
 - void addMIDI(Stream \* ser)
-  - baud rate 32150?
+  - baud rate 31250?
   - midi channel / note / duration etc.
 - extend wave generator functions?
 - inverted channel?
@@ -132,6 +132,7 @@ Default the Metronome is idle and needs an explicit **start()**.
 - unit tests,
 - ledstrip output?
 - determine BPM tool with a button?
+- debug() => probably complexer than the library :)
 
 #### Wont
 
