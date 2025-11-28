@@ -34,7 +34,7 @@ will get 5 pulses and the second will get one.
 
 The default BPM == 100 and default measure == 4.
 
-Default the Metronoe is idle and needs an explicit start with **start()**.
+Default the Metronome is idle and needs an explicit start with **start()**.
 
 The metronome can be used as a very simple square wave generator.
 Be aware that to set a frequency, the BPM must be multiplied by 60.
