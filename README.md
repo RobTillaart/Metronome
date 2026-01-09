@@ -13,11 +13,6 @@
 
 Arduino library for creating a Metronome.
 
-TODO
-
-Metronome is just a simple library, wrote a metronome sketch long ago and found it when browsing my laptop. It is not much more than “blink without delay” for two pins, with a start and stop, and a lot of ideas how to extend it in the future if time permits. The tick and tock were in my case just 2 LEDS, but you could control anything e.g. 2 different buzzers, piezo. (I even had visions of a digital conductor waving with a baton).Need to elaborate the documentation on that, I’ll add a local note.
-
-
 ## Description
 
 **Experimental**
